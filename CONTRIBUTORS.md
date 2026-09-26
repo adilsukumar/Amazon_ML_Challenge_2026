@@ -1,13 +1,12 @@
 # Contributors
 
-The team has three members. Replace the two placeholders below once their exact
-names and GitHub handles are available.
+The team has three active members.
 
 | Name | GitHub | Primary workstream | Status |
 |---|---|---|---|
 | Adil Sukumar | [@adilsukumar](https://github.com/adilsukumar) | Integration and evaluation | Active |
-| Teammate A | `@handle-needed` | Data and candidate generation | Awaiting identity |
-| Teammate B | `@handle-needed` | Features and matching model | Awaiting identity |
+| Snehal Dixit | [@snehaldixitofficial](https://github.com/snehaldixitofficial) | Data and candidate generation | Active |
+| Bhumika Aswal | [@SpRinG-1303](https://github.com/SpRinG-1303) | Features and matching model | Active |
 
 ## Attribution policy
 
@@ -17,4 +16,3 @@ names and GitHub handles are available.
   teammate’s consent.
 - Reviews, experiment design, documentation, and engineering contributions are
   credited in release notes and the final methodology document.
-

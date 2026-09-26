@@ -38,14 +38,12 @@ The strategy is:
 ## 3. Team operating model
 
 Three parallel workstreams minimize overlap while preserving shared review.
-Replace the placeholder identities in `CONTRIBUTORS.md` as soon as GitHub handles
-are known.
 
 | Workstream | Primary owner | Responsibilities | Main deliverables |
 |---|---|---|---|
 | Integration and evaluation | Adil | Repository architecture, deterministic pipeline, entity-level metric, output validation, packaging, release integration | CLI, configs, tests, validated releases |
-| Data and candidate generation | Teammate A | Profiling, normalization, blocking, nearest-neighbour retrieval, candidate-recall analysis, performance tuning | Data report, blocker, candidate metrics |
-| Features and matching model | Teammate B | Pair construction, hard negatives, feature engineering, model training, calibration, threshold studies | Feature pipeline, trained model, ablations |
+| Data and candidate generation | Snehal Dixit | Profiling, normalization, blocking, nearest-neighbour retrieval, candidate-recall analysis, performance tuning | Data report, blocker, candidate metrics |
+| Features and matching model | Bhumika Aswal | Pair construction, hard negatives, feature engineering, model training, calibration, threshold studies | Feature pipeline, trained model, ablations |
 
 Shared responsibilities:
 
@@ -71,7 +69,7 @@ Goal: make collaboration safe before modeling begins.
 
 - [x] Initialize the Git repository and `main` branch.
 - [x] Add the competition blueprint and contribution workflow.
-- [ ] Add all three teammate names and GitHub handles.
+- [x] Add all three teammate names and GitHub handles.
 - [ ] Add the official validator and documentation template.
 - [ ] Place the seven TSV files under local `dataset/train` and `dataset/test`.
 - [ ] Add a Python package, configuration, logging, and test runner.
@@ -325,7 +323,7 @@ co-author unless they genuinely contributed and agree to the attribution.
 
 ### P0 — now
 
-- [ ] Add teammate names, GitHub handles, and preferred areas.
+- [x] Add teammate names, GitHub handles, and primary workstreams.
 - [ ] Obtain and locally place datasets and official validator.
 - [ ] Record file sizes and compute: CPU, RAM, GPU, and disk.
 - [ ] Scaffold package, CLI, configuration, logging, and tests.
