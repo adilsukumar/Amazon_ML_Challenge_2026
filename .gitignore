@@ -1,0 +1,39 @@
+# Competition data and generated artifacts
+dataset/
+output/*.tsv
+*.zip
+
+# Models and caches
+models/
+artifacts/
+cache/
+*.joblib
+*.pkl
+*.pickle
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.venv/
+venv/
+
+# Notebooks and editors
+.ipynb_checkpoints/
+.idea/
+.vscode/
+
+# OS files and secrets
+.DS_Store
+Thumbs.db
+.env
+.env.*
+
+# Codex local workspace folders
+work/
+outputs/
+
