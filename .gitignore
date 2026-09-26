@@ -1,6 +1,10 @@
 # Competition data and generated artifacts
-dataset/
+dataset/**/*.tsv
+dataset/**/*.csv
+dataset/**/*.parquet
+dataset/**/*.zip
 output/*.tsv
+dist/
 *.zip
 
 # Models and caches
@@ -36,4 +40,3 @@ Thumbs.db
 # Codex local workspace folders
 work/
 outputs/
-

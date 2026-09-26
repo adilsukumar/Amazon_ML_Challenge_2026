@@ -72,7 +72,8 @@ Goal: make collaboration safe before modeling begins.
 - [x] Add all three teammate names and GitHub handles.
 - [ ] Add the official validator and documentation template.
 - [ ] Place the seven TSV files under local `dataset/train` and `dataset/test`.
-- [ ] Add a Python package, configuration, logging, and test runner.
+- [ ] Add configuration and structured logging to the Python package.
+- [x] Add the Python package, CLI, and test runner.
 - [x] Add CI for unit tests without requiring private datasets.
 
 Exit gate: every teammate can clone the repository, create the environment, and
