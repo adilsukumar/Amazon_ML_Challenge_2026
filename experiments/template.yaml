@@ -1,0 +1,17 @@
+experiment_id: ""
+git_commit: ""
+date: ""
+owner: ""
+hypothesis: ""
+data_manifest: ""
+validation_split: ""
+candidate_config: ""
+feature_config: ""
+model_config: ""
+decision_config: ""
+seed: 2026
+metrics: {}
+runtime_and_memory: ""
+result: "investigate"
+notes: ""
+

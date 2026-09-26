@@ -75,7 +75,7 @@ Goal: make collaboration safe before modeling begins.
 - [ ] Add the official validator and documentation template.
 - [ ] Place the seven TSV files under local `dataset/train` and `dataset/test`.
 - [ ] Add a Python package, configuration, logging, and test runner.
-- [ ] Add CI for unit tests and formatting without requiring private datasets.
+- [x] Add CI for unit tests without requiring private datasets.
 
 Exit gate: every teammate can clone the repository, create the environment, and
 run a smoke test.
@@ -329,7 +329,7 @@ co-author unless they genuinely contributed and agree to the attribution.
 - [ ] Obtain and locally place datasets and official validator.
 - [ ] Record file sizes and compute: CPU, RAM, GPU, and disk.
 - [ ] Scaffold package, CLI, configuration, logging, and tests.
-- [ ] Implement schema validation and exact macro F0.5 tests.
+- [x] Implement schema validation and exact macro F0.5 tests.
 - [ ] Produce the first data-profile report.
 
 ### P1 — after audit
@@ -359,4 +359,3 @@ co-author unless they genuinely contributed and agree to the attribution.
 - Treat unseen-country support as an architectural constraint.
 - Build to win, while ensuring every leaderboard point survives private evaluation,
   compliance review, and clean-room reproduction.
-
