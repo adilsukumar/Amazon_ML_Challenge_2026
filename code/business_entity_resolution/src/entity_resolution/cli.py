@@ -5,6 +5,7 @@ from __future__ import annotations
 import argparse
 from pathlib import Path
 
+from .baseline import write_singleton_baseline
 from .packaging import build_submission_zip
 from .schema import audit_ground_truth, audit_source_file
 from .submission import validate_submission
@@ -58,6 +59,12 @@ def build_parser() -> argparse.ArgumentParser:
     package_parser.add_argument("--output-dir", type=Path, required=True)
     package_parser.add_argument("--documentation", type=Path, required=True)
     package_parser.add_argument("--destination-dir", type=Path, required=True)
+
+    singleton_parser = subparsers.add_parser(
+        "singleton-baseline", help="create a valid all-singleton emergency submission"
+    )
+    singleton_parser.add_argument("--test-source1", type=Path, required=True)
+    singleton_parser.add_argument("--output-dir", type=Path, required=True)
     return parser
 
 
@@ -81,6 +88,12 @@ def main() -> int:
             destination_dir=args.destination_dir,
         )
         print(f"Created {path}")
+        return 0
+    if args.command == "singleton-baseline":
+        matching, candidates, rows = write_singleton_baseline(
+            args.test_source1, args.output_dir
+        )
+        print(f"Created {matching} and {candidates} with {rows:,} Source 1 rows")
         return 0
     raise AssertionError(f"unhandled command: {args.command}")
 
