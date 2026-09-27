@@ -58,6 +58,11 @@ ownership are maintained in [CONTRIBUTORS.md](CONTRIBUTORS.md). GitHub’s contr
 graph will credit each person after they commit using an email linked to their own
 GitHub account.
 
+Individual handoffs: [Bhumika — matching model](docs/BHUMIKA_README.md) and
+[Snehal — candidate generation](docs/SNEHAL_README.md). Each handoff includes a
+copy-paste prompt for a fresh Codex chat, setup steps, measurable deliverables,
+and a PR contract. The private dataset is not stored in this public repository.
+
 ## Collaboration
 
 Read [CONTRIBUTING.md](CONTRIBUTING.md) before starting work. In short: work on a
