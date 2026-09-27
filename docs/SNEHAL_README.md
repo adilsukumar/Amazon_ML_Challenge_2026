@@ -12,6 +12,8 @@ Improve candidate recall without losing blocking scalability. The current v1 exa
 
 This workstream owns retrieval/blocking and `candidate_pairs.tsv`. Bhumika owns pair scoring and final match decisions. Preserve a clean interface: a stream of `(source1_entity_id, candidate_entity_id)` pairs with no truth leakage.
 
+Adil has added `src/entity_resolution/prefix_blocker.py` as an **experimental**, test-covered channel that adds at most eight same-country, eight-character name-prefix candidates per Source 1 row. It is not included in the submitted outputs and must not be called a score improvement until full training recall and candidate-volume measurements finish. The public leaderboard baseline is 0.407; this does not establish any score for the new channel.
+
 ## Start here
 
 1. Obtain the official ZIP privately from Adil and extract the seven TSVs under local `dataset/`. Never commit the dataset.
