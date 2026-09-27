@@ -3,9 +3,11 @@
 from __future__ import annotations
 
 import argparse
+import json
 from pathlib import Path
 
 from .baseline import write_singleton_baseline
+from .exact_matcher import build_database, evaluate_rules, generate_candidates, write_outputs
 from .packaging import build_submission_zip
 from .schema import audit_ground_truth, audit_source_file
 from .submission import validate_submission
@@ -65,6 +67,21 @@ def build_parser() -> argparse.ArgumentParser:
     )
     singleton_parser.add_argument("--test-source1", type=Path, required=True)
     singleton_parser.add_argument("--output-dir", type=Path, required=True)
+
+    exact_train = subparsers.add_parser(
+        "exact-train", help="build and evaluate the disk-backed exact baseline"
+    )
+    exact_train.add_argument("--train-dir", type=Path, required=True)
+    exact_train.add_argument("--database", type=Path, required=True)
+    exact_train.add_argument("--report", type=Path, required=True)
+
+    exact_predict = subparsers.add_parser(
+        "exact-predict", help="build exact candidates and test predictions"
+    )
+    exact_predict.add_argument("--test-dir", type=Path, required=True)
+    exact_predict.add_argument("--database", type=Path, required=True)
+    exact_predict.add_argument("--output-dir", type=Path, required=True)
+    exact_predict.add_argument("--rule", choices=("both", "name", "address", "union"), required=True)
     return parser
 
 
@@ -94,6 +111,37 @@ def main() -> int:
             args.test_source1, args.output_dir
         )
         print(f"Created {matching} and {candidates} with {rows:,} Source 1 rows")
+        return 0
+    if args.command == "exact-train":
+        connection = build_database(
+            database_path=args.database,
+            source1_path=args.train_dir / "train_source1.tsv",
+            source2_path=args.train_dir / "train_source2.tsv",
+            source3_path=args.train_dir / "train_source3.tsv",
+            truth_path=args.train_dir / "train_ground_truth.tsv",
+        )
+        try:
+            generate_candidates(connection)
+            report = evaluate_rules(connection)
+        finally:
+            connection.close()
+        args.report.parent.mkdir(parents=True, exist_ok=True)
+        args.report.write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
+        print(f"Created {args.report}")
+        return 0
+    if args.command == "exact-predict":
+        connection = build_database(
+            database_path=args.database,
+            source1_path=args.test_dir / "test_source1.tsv",
+            source2_path=args.test_dir / "test_source2.tsv",
+            source3_path=args.test_dir / "test_source3.tsv",
+        )
+        try:
+            generate_candidates(connection)
+            matching, candidates = write_outputs(connection, args.output_dir, rule=args.rule)
+        finally:
+            connection.close()
+        print(f"Created {matching} and {candidates}")
         return 0
     raise AssertionError(f"unhandled command: {args.command}")
 

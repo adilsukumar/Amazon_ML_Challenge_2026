@@ -10,9 +10,10 @@ high-recall candidate-generation stage.
 
 ## Current status
 
-The project is in its foundation phase. The competition blueprint, team workflow,
-and repository conventions are defined; data profiling and the first reproducible
-baseline are next.
+The official dataset is placed locally and a reproducible exact-key baseline has
+produced both submission TSVs. Amazon's official validator passes with ID checks
+enabled. The current development score, limitations, and submission status are
+recorded in [docs/submission_log.md](docs/submission_log.md).
 
 See [plan.md](plan.md) for the technical blueprint, work breakdown, experiment
 gates, and submission checklist.

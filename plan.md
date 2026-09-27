@@ -70,8 +70,8 @@ Goal: make collaboration safe before modeling begins.
 - [x] Initialize the Git repository and `main` branch.
 - [x] Add the competition blueprint and contribution workflow.
 - [x] Add all three teammate names and GitHub handles.
-- [ ] Add the official validator and documentation template.
-- [ ] Place the seven TSV files under local `dataset/train` and `dataset/test`.
+- [x] Add the official validator and documentation template.
+- [x] Place the seven TSV files under local `dataset/train` and `dataset/test`.
 - [ ] Add configuration and structured logging to the Python package.
 - [x] Add the Python package, CLI, and test runner.
 - [x] Add CI for unit tests without requiring private datasets.
@@ -325,7 +325,7 @@ co-author unless they genuinely contributed and agree to the attribution.
 ### P0 — now
 
 - [x] Add teammate names, GitHub handles, and primary workstreams.
-- [ ] Obtain and locally place datasets and official validator.
+- [x] Obtain and locally place datasets and official validator.
 - [ ] Record file sizes and compute: CPU, RAM, GPU, and disk.
 - [ ] Scaffold package, CLI, configuration, logging, and tests.
 - [x] Implement schema validation and exact macro F0.5 tests.
@@ -337,8 +337,8 @@ co-author unless they genuinely contributed and agree to the attribution.
 - [ ] Implement exact and rare-token blockers.
 - [ ] Implement batched character TF-IDF nearest-neighbour retrieval.
 - [ ] Report candidate recall and resource usage.
-- [ ] Build the weighted-similarity baseline.
-- [ ] Produce and validate the first submission files.
+- [x] Build a compact exact-key baseline with measured rule selection.
+- [x] Produce and validate the first submission files.
 
 ### P2 — competitive iteration
 

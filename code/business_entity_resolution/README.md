@@ -29,8 +29,33 @@ During development, either install the package in editable mode or set
 python -m pip install -e .
 ```
 
-Training and inference commands will be added after the data audit establishes
-the dataset scale and resource constraints.
+## Reproduce the exact-key baseline
+
+The following commands use only the supplied data and Python standard library.
+Run from this directory after `python -m pip install -e .`, or set
+`PYTHONPATH=src`. Use fresh database paths for each run; the commands refuse to
+overwrite an existing database.
+
+```bash
+entity-resolution exact-train \
+  --train-dir ../../dataset/train \
+  --database ../../artifacts/exact_train.sqlite \
+  --report ../../artifacts/reports/exact_train.json
+
+entity-resolution exact-predict \
+  --test-dir ../../dataset/test \
+  --database ../../artifacts/exact_test.sqlite \
+  --output-dir ../../output \
+  --rule union
+
+python src/official_validate_submission.py \
+  --matching ../../output/matching_results.tsv \
+  --candidate ../../output/candidate_pairs.tsv \
+  --test-dir ../../dataset/test --check-ids
+```
+
+The `union` rule had the highest development-set macro F0.5 of the four exact
+rules evaluated. See the methodology document for metrics and limitations.
 
 ## Validate generated output
 
